@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGC AYURVEDA | Dr. Mantavya Prajapati</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           1. CSS VARIABLES & GLOBAL RESET
+           ========================================= */
+        :root {
+            --primary-green: #2E7D32; /* Herbal Green */
+            --primary-blue: #1565C0;  /* Medical Blue */
+            --light-green: #E8F5E9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #FAFAFA;
+        }
+
+        /* =========================================
+           2. UTILITY CLASSES
+           ========================================= */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           3. HEADER / NAVBAR
+           ========================================= */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--light-green) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-img {
+            flex: 1;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--white);
+        }
+
+        /* =========================================
+           5. ABOUT SECTION
+           ========================================= */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* =========================================
+           6. SERVICES & SPECIALTIES
+           ========================================= */
+        .services {
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        /* =========================================
+           7. DOCTOR PROFILE
+           ========================================= */
+        .doctor-profile {
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            color: var(--white);
+        }
+
+        .doctor-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .doctor-img {
+            flex: 1;
+            background: #eee;
+            min-height: 300px;
+        }
+        
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            flex: 1.5;
+            padding: 40px;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .doctor-info h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .doctor-info .qual {
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* =========================================
+           8. CONSULTATION FORM & PAYMENT
+           ========================================= */
+        .consultation {
+            background-color: var(--light-green);
+        }
+
+        .form-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+        
+        .row-group {
+            display: flex;
+            gap: 15px;
+        }
+        .row-group .form-group {
+            flex: 1;
+        }
+
+        .fee-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            color: #0d47a1;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        /* PAYMENT MODAL STYLES */
+        .payment-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payment-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: popUp 0.3s ease;
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .qr-code img {
+            width: 220px;
+            height: 220px;
+            margin: 20px 0;
+            border: 2px solid #eee;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .upi-id {
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Transaction Input Style */
+        .txn-input {
+            border: 2px solid var(--primary-green);
+            background: #f0fff4;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           9. FOOTER & CONTACT
+           ========================================= */
+        .contact-banner {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .footer {
+            background: #222;
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           10. RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 991px) {
+            .hero-text h1 { font-size: 2.8rem; }
+            .hero-content { flex-direction: column-reverse; text-align: center; }
+            .hero-text p { margin: 0 auto 30px; }
+            .about-grid { flex-direction: column; }
+            .about-img { margin-bottom: 30px; width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; color: var(--primary-blue); }
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transition: 0.4s;
+            }
+            .nav-links.active { left: 0; }
+            .doctor-card { flex-direction: column; }
+            .doctor-img { min-height: 250px; }
+            .hero-text h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <span class="close-btn" onclick="closePayment()">&times;</span>
+            <h2 style="color: var(--primary-blue);">Scan & Pay ₹250</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Scan this QR to pay directly to Dr. Mantavya</p>
+            
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=mantvya99-1@oksbi%26pn=Dr.Mantavya%26am=250%26cu=INR" alt="Payment QR">
+            </div>
+            
+            <p style="font-size: 0.9rem; color: #666;">UPI ID:</p>
+            <span class="upi-id">mantvya99-1@oksbi</span>
+            <br>
+            
+            <a href="upi://pay?pa=mantvya99-1@oksbi&pn=Dr.Mantavya&am=250&cu=INR" class="btn btn-primary" style="background: #25d366; width: 100%; margin-bottom: 20px; padding: 10px;">
+                <i class="fas fa-mobile-alt"></i> Click to Pay on Mobile
+            </a>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            
+            <div style="text-align: left; margin-bottom: 15px;">
+                <label style="font-size: 0.9rem; font-weight: bold; color: #d32f2f;">Enter Payment Transaction ID / UTR *</label>
+                <input type="text" id="txn_id" class="form-control txn-input" placeholder="e.g. 4032xxxxxxxx" required>
+                <small style="color: #666; font-size: 0.75rem; display: block; margin-top: 5px;">(Required to verify your booking)</small>
+            </div>
+            
+            <button onclick="confirmWhatsapp()" class="btn btn-primary" style="width: 100%;">
+                <i class="fab fa-whatsapp"></i> Verify & Send Details
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-leaf"></i> VGC <span>AYURVEDA</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#specialties">Specialties</a></li>
+                    <li><a href="#doctor">Doctor</a></li>
+                    <li><a href="#consultation" class="btn btn-primary" style="padding: 8px 20px;">Book Consultation</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3>Welcome to VGC Ayurveda</h3>
+                    <h1>We Take Care of <br>Your Holistic Health</h1>
+                    <p>Experience the ancient wisdom of Ayurveda with modern care. Consult with Dr. Mantavya Prajapati from the comfort of your home.</p>
+                    <a href="#consultation" class="btn btn-primary">Book Online Consultation</a>
+                </div>
+                <div class="hero-img">
+                    <img src="c:\Users\hjpra\Downloads\vgc\WhatsApp Image 2026-02-07 at 5.18.06 PM.jpeg" alt="Dr. Mantavya Prajapati">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose VGC Ayurveda?</h2>
+                <p>Restoring balance through nature and science.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="C:\Users\hjpra\Downloads\vgc\Gemini_Generated_Image_yv0s3cyv0s3cyv0s.png" alt="About Ayurveda">
+                </div>
+                <div class="about-text">
+                    <h3>Holistic Healing & Natural Care</h3>
+                    <p>At VGC Ayurveda, we believe in treating the root cause of the disease rather than just symptoms. Our approach combines authentic Ayurvedic treatments with lifestyle modifications to ensure long-term health benefits.</p>
+                    <br>
+                    <ul style="list-style: none;">
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> 100% Natural Herbal Medicines</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Personalized Diet Plans</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-green);"></i> Expert Nadi Pariksha (Pulse Diagnosis)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive Ayurvedic care for your well-being.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Ayurveda Consultation</h3>
+                    <p>Expert diagnosis and treatment plans tailored to your body type (Dosha).</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-carrot"></i></div>
+                    <h3>Diet & Lifestyle</h3>
+                    <p>Personalized diet charts and yoga recommendations for a healthier life.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h3>Medicine Delivery</h3>
+                    <p>Get authentic Ayurvedic medicines delivered directly to your doorstep.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+                    <h3>Online Support</h3>
+                    <p>Video consultations and 24/7 support via WhatsApp for our patients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialties section-padding" id="specialties" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialties</h2>
+                <p>Expert treatments for specific health conditions based on your Prakruti.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Prakruti & Lifestyle</h3>
+                    <p>Specific Diet & Lifestyle Advice according to Your Prakruti for a Healthy Life.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-bone"></i></div>
+                    <h3>Joint Disorders</h3>
+                    <p>Treatment for Arthritis, Knee Pain, Back Pain, and Spondylitis.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-hand-dots"></i></div>
+                    <h3>Skin Diseases</h3>
+                    <p>Natural cure for Psoriasis, Eczema, Acne, and other skin allergies.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-fire-alt"></i></div>
+                    <h3>Digestive Disorders</h3>
+                    <p>Relief from Gas, Acidity, Constipation, Indigestion, and Liver Issues.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Lifestyle Disorders</h3>
+                    <p>Effective management of Obesity (Weight Loss) and Diabetes.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-user-alt"></i></div>
+                    <h3>Hair Problems</h3>
+                    <p>Solutions for Hair Fall, Dandruff, Premature Greying, and Scalp Infections.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-virus"></i></div>
+                    <h3>Allergic Diseases</h3>
+                    <p>Immunity boosting for Recurrent Cold, Cough, and Seasonal Allergies.</p>
+                </div>
+                <div class="service-card" style="border: 1px solid #eee;">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Mental Wellness</h3>
+                    <p>Treatment for Stress, Insomnia (Sleeplessness), and Mental Health Education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="doctor-profile section-padding" id="doctor">
+        <div class="container">
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <img src="C:\Users\hjpra\Downloads\vgc\WhatsApp Image 2026-02-07 at 5.18.06 PM.jpeg" alt="Dr. Mantavya Prajapati">
+                </div>
+                <div class="doctor-info">
+                    <h2>Dr. Mantavya Prajapati</h2>
+                    <span class="qual">BAMS – Ayurveda Doctor</span>
+                    <p>Dr. Mantavya is a dedicated Ayurveda practitioner with a passion for holistic healing. With years of experience in treating chronic ailments through natural therapies, he aims to bring the benefits of Ayurveda to the modern world.</p>
+                    <br>
+                    <a href="#consultation" class="btn btn-primary" style="background: white; color: var(--primary-green);">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation section-padding" id="consultation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Online Consultation</h2>
+                <p>Fill out the form below to start your healing journey.</p>
+            </div>
+            <div class="form-box">
+                <div class="fee-box">
+                    Consultation Fees: ₹250
+                </div>
+
+                <form id="consultForm" onsubmit="showPayment(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="p_name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="p_phone" class="form-control" placeholder="Enter mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="p_email" class="form-control" placeholder="Enter email address" required>
+                    </div>
+                    
+                    <div class="row-group">
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" id="p_age" class="form-control" placeholder="Age" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="p_gender" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Time Slot</label>
+                        <select id="p_slot" class="form-control" required>
+                            <option value="">Select Time Slot</option>
+                            <option value="6:00 PM - 6:30 PM">6:00 PM - 6:30 PM</option>
+                            <option value="6:30 PM - 7:00 PM">6:30 PM - 7:00 PM</option>
+                            <option value="7:00 PM - 7:30 PM">7:00 PM - 7:30 PM</option>
+                            <option value="7:30 PM - 8:00 PM">7:30 PM - 8:00 PM</option>
+                            <option value="9:00 PM - 9:30 PM">9:00 PM - 9:30 PM</option>
+                            <option value="9:30 PM - 10:00 PM">9:30 PM - 10:00 PM</option>
+                            <option value="10:00 PM - 10:30 PM">10:00 PM - 10:30 PM</option>
+                            <option value="10:30 PM - 11:00 PM">10:30 PM - 11:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Health Problem / Message</label>
+                        <textarea id="p_message" class="form-control" placeholder="Describe your health issue..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Proceed to Pay ₹250
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-banner">
+        <div class="container">
+            <h2>Start Your Ayurveda Healing Journey Today</h2>
+            <br>
+            <a href="tel:+917046258087" class="btn btn-primary" style="background: white; color: var(--primary-blue);">Call Now</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>VGC AYURVEDA</h4>
+                    <p>Bringing ancient wisdom to modern life. Your trusted partner in natural health and wellness.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#doctor">Doctor Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 7046258087</li>
+                        <li><i class="fas fa-envelope"></i> mantavyaprajapati1481@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2026 VGC AYURVEDA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/7046258087" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // --- 2. Fix for # in URL (Smooth Scroll) ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // --- 3. Payment Modal Logic ---
+        function showPayment(event) {
+            event.preventDefault(); // Stop form submit
+            document.getElementById('paymentModal').style.display = "flex";
+        }
+
+        function closePayment() {
+            document.getElementById('paymentModal').style.display = "none";
+        }
+
+        // --- 4. WhatsApp Logic with Transaction ID ---
+        function confirmWhatsapp() {
+            
+            // Validate Transaction ID
+            var txnId = document.getElementById('txn_id').value;
+            
+            if(txnId.trim() === "") {
+                alert("Please enter the Payment Transaction ID (UTR Number) to verify your booking.");
+                return; // Stop execution
+            }
+
+            // Get Form Data
+            var name = document.getElementById('p_name').value;
+            var phone = document.getElementById('p_phone').value;
+            var age = document.getElementById('p_age').value;
+            var gender = document.getElementById('p_gender').value;
+            var slot = document.getElementById('p_slot').value;
+            var message = document.getElementById('p_message').value;
+
+            var doctorNumber = "7046258087"; 
+
+            // Construct Message
+            var whatsappMessage = 
+                "Hello Doctor, I have made the payment for consultation.%0a" +
+                "-----------------------%0a" +
+                "*Name:* " + name + "%0a" +
+                "*Age:* " + age + " (" + gender + ")%0a" +
+                "*Phone:* " + phone + "%0a" +
+                "*Preferred Slot:* " + slot + "%0a" +
+                "*Problem:* " + message + "%0a" +
+                "-----------------------%0a" +
+                "*Status:* PAYMENT DONE (₹250)%0a" +
+                "*Txn ID:* " + txnId;
+
+            // Open WhatsApp
+            var url = "https://wa.me/" + doctorNumber + "?text=" + whatsappMessage;
+            window.open(url, '_blank').focus();
+            
+            // Close modal
+            closePayment();
+        }
+
+        // --- 5. Sticky Navbar Effect ---
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+            } else {
+                header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+            }
+        });
+    </script>
+</body>
+</html>
