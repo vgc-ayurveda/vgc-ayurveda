@@ -201,6 +201,7 @@
             border-radius: 20px;
             box-shadow: var(--shadow);
             border: 5px solid var(--white);
+            display: none; /* Hides image if src is empty */
         }
 
         /* =========================================
@@ -274,7 +275,7 @@
         }
 
         /* =========================================
-           7. DOCTOR PROFILE
+           7. DOCTOR PROFILE (CSS kept in case you add it back later, but section is removed from HTML)
            ========================================= */
         .doctor-profile {
             background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
@@ -562,8 +563,8 @@
                 transition: 0.4s;
             }
             .nav-links.active { left: 0; }
-            .doctor-card { flex-direction: column; }
-            .doctor-img { min-height: 250px; }
+            /* .doctor-card { flex-direction: column; } - Removed as section is gone */
+            /* .doctor-img { min-height: 250px; } - Removed as section is gone */
             .hero-text h1 { font-size: 2.2rem; }
         }
     </style>
@@ -577,7 +578,7 @@
             <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Scan this QR to pay directly to Dr. Mantavya</p>
             
             <div class="qr-code">
-                <img src="new_qr.jpeg" alt="Payment QR for mantvya99-2@oksbi">
+                <img src="1000037490.jpg" alt="Payment QR for mantvya99-2@oksbi">
             </div>
             
             <p style="font-size: 0.9rem; color: #666;">UPI ID:</p>
@@ -613,7 +614,6 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#specialties">Specialties</a></li>
-                    <li><a href="#doctor">Doctor</a></li>
                     <li><a href="#consultation" class="btn btn-primary" style="padding: 8px 20px;">Book Consultation</a></li>
                 </ul>
                 <div class="menu-toggle" id="menuToggle">
@@ -633,8 +633,7 @@
                     <a href="#consultation" class="btn btn-primary">Book Online Consultation</a>
                 </div>
                 <div class="hero-img">
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop" alt="VGC Ayurveda">
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -765,23 +764,6 @@
         </div>
     </section>
 
-    <section class="doctor-profile section-padding" id="doctor">
-        <div class="container">
-            <div class="doctor-card">
-                <div class="doctor-img">
-                    <img src="WhatsApp Image 2026-02-07 at 5.18.06 PM.jpeg" alt="Dr. Mantavya Prajapati">
-                </div>
-                <div class="doctor-info">
-                    <h2>Dr. Mantavya Prajapati</h2>
-                    <span class="qual">BAMS – Ayurveda Doctor</span>
-                    <p>Dr. Mantavya is a dedicated Ayurveda practitioner with a passion for holistic healing. With years of experience in treating chronic ailments through natural therapies, he aims to bring the benefits of Ayurveda to the modern world.</p>
-                    <br>
-                    <a href="#consultation" class="btn btn-primary" style="background: white; color: var(--primary-green);">Book Appointment</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="consultation section-padding" id="consultation">
         <div class="container">
             <div class="section-title">
@@ -872,8 +854,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#doctor">Doctor Profile</a></li>
-                    </ul>
+                        </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contact Us</h4>
@@ -1001,5 +982,3 @@
     </script>
 </body>
 </html>
-
-
